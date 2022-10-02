@@ -2,12 +2,16 @@ const hamburger = document.querySelector('.hamburger')
 const navLinks = document.querySelector('.nav-links')
 const links = document.querySelectorAll('.nav-links li')
 const nav = document.querySelector('.nav')
+const contactBtn = document.querySelector('.contact-btn')
+const portalBtn = document.querySelector('.portal-btn')
 
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open')
     links.forEach(link => {
         link.classList.toggle('fade')
     })
+    contactBtn.classList.toggle('fade')
+    portalBtn.classList.toggle('fade')
 })
 
 window.addEventListener('scroll', fixNav)

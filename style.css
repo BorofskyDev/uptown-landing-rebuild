@@ -193,7 +193,6 @@ select {
   font-weight: 900;
 }
 
-
 /*********************************/
 /*********  NAVBAR  **************/
 /*********************************/
@@ -207,7 +206,8 @@ select {
   margin-top: 0;
   border-bottom: 1px solid hsl(var(--clr-primary));
   border-radius: 0 0 0 25px;
-  box-shadow: 0 0 1px 0px hsl(var(--clr-white)) inset, 0 0 1px 0px hsl(var(--clr-white));
+  box-shadow: 0 0 1px 0px hsl(var(--clr-white)) inset,
+    0 0 1px 0px hsl(var(--clr-white));
   transition: all 0.3 ease-in-out;
 }
 
@@ -225,6 +225,7 @@ select {
 .nav-links li a {
   color: hsl(var(--clr-primary));
   font-size: var(--fs-300);
+  font-weight: 300;
   text-transform: uppercase;
   transition: all 0.3 ease-in-out;
 }
@@ -263,6 +264,7 @@ select {
 }
 
 .portal-btn {
+  font-family: var(--heading);
   color: hsl(var(--clr-white));
   border: 1px solid hsl(var(--clr-primary));
   text-transform: uppercase;
@@ -332,13 +334,29 @@ select {
     pointer-events: none;
   }
 
+  .contact-btn {
+    opacity: 0;
+    transition: all 0.5s ease 0.7s;
+  }
+
+  .contact-btn.fade {
+    opacity: 1;
+  }
+
   .portal-btn {
     margin-bottom: 30px;
+    opacity: 0;
+    transition: all 0.5s ease 0.8s;
+  }
+
+
+  .portal-btn.fade {
+    opacity: 1;
   }
 
   .nav-links.open {
-    clip-path: circle(650px at 90% -20%);
-    -webkit-clip-path: circle(650px at 90% -20%);
+    clip-path: circle(1100px at 90% -20%);
+    -webkit-clip-path: circle(1100px at 90% -20%);
     pointer-events: all;
   }
 
