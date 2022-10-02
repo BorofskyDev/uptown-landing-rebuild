@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Libre+Baskerville:wght@400;700&display=swap');
+
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+  /* colors */
+  --clr-primary: 43 75% 49%;
+  --clr-secondary: 20 6% 31%;
+  --clr-accent: 216 58% 19%;
+
+  --clr-white: 0 0% 99%;
+  --clr-neutral: 150 1% 40%;
+  --clr-dark: 150 1% 11%;
+  /* font-sizes */
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1.25rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 0.675rem;
+
+  /* font-families */
+  --heading: 'Libre Baskerville', serif;
+  --text: 'Lato', sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-500: 1.25rem;
+    --fs-400: 1rem;
+    --fs-300: 0.8375rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 0.9rem;
+  }
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+ul,
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: var(--text);
+  font-size: var(--400);
+  background-color: hsl(var(--clr-dark));
+  color: hsl(var(--clr-white));
+  line-height: 1.2;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
+.font-regular {
+  font-size: var(--fs-400);
+}
+
+.font-emphasize {
+  font-size: var(--fs-500);
+}
+
+.font-subheading {
+  font-size: var(--fs-600);
+}
+
+.font-heading {
+  font-size: var(--fs-700);
+}
+
+.font-title {
+  font-size: var(--fs-800);
+}
+
+.heading {
+  font-family: var(--heading);
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-heavy-bold {
+  font-weight: 900;
+}
+
+/* NAVBAR */
+.nav {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background: hsl(var(--clr-secondary) / 0.7);
+    backdrop-filter: blur (1rem);
+    margin-top: 0;
+    transition: all 0.3 ease-in-out;
+}
+
+.nav-links { 
+    display: flex;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    transition: all 0.3 ease-in-out;
+}
+
+.nav-links li a{
+    color: hsl(var(--clr-primary));
+    font-size: var(--fs-300);
+    text-transform: uppercase;
+    transition: all 0.3 ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: hsl(var(--clr-white));
+    border-bottom: 2px solid hsl(var(--clr-white))
+}
+
+.landing {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing h1 {
+    margin: 100px;
+    font-size: 50px;
+}
+
+.nav.active {
+    background: hsl(var(--clr-dark) / 0.7);
+    height: 7vh;
+    transition: all 0.3 ease-in-out;
+}
+
+.nav.active a{
+    color: hsl(var(--clr-white));
+}
+
+.nav.active a:hover {
+    color: hsl(var(--clr-primary));
+    border-bottom: 2px solid hsl(var(--clr-primary));
+}
+
+@media (max-width: 40rem) {
+    
+    .nav {
+        position: relative;
+    }
+
+
+    .hamburger {
+        position: fixed;
+        cursor: pointer;
+        right: 5%;
+        top: 2%;
+        transform: translate(-5%, -2%);
+        z-index: 2;
+    }
+
+    .line {
+        width: 30px;
+        height: 3px;
+        background: hsl(var(--clr-primary));
+        margin: 5px;
+        
+    }
+    
+    .nav-links {
+        position: fixed;
+        background: hsl(var(--clr-dark) / 0.7);
+        backdrop-filter: blur(1rem);
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        /* display: none */
+        clip-path: circle(100px at 90% -20%);
+        -webkit-clip-path: circle(100px at 90% -20%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+
+    }
+
+  
+
+    .nav-links li{
+        opacity: 0;
+    }
+
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.3s;
+    }
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.5s;
+    }
+    .nav-links li:nth-child(4) {
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(5) {
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(6) {
+        transition: all 0.5s ease 0.8s;
+    }
+    li.fade {
+        opacity: 1;
+    }
+}
