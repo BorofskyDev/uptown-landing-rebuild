@@ -519,7 +519,7 @@ select {
   box-shadow: 0 0 55px 50px #000;
 }
 
-.about-container img {
+.divider{
   width: 400px;
   height: 75px;
 }
